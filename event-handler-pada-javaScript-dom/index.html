@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Handler pada JavaScript DOM</title>
+  </head>
+  <body>
+    <button class="btn">Klik Saya!</button>
+    <input type="text" id="input" placeholder="Tulis sesuatu..." />
+
+    <script>
+      // Event click
+      const button = document.querySelector(".btn");
+      button.addEventListener("click", () => {
+        alert("Hello World");
+      });
+
+      // Event mouseover
+      button.addEventListener("mouseover", () => {
+        console.log("Mouse berada di atas tombol");
+      });
+
+      // Event mouseout
+      button.addEventListener("mouseout", () => {
+        console.log("Mouse keluar dari tombol");
+      });
+
+      // Event keydown
+      document.addEventListener("keydown", (e) => {
+        console.log(`Tombol ${e.key} ditekan`);
+      });
+
+      // Event input
+      const input = document.getElementById("input");
+      input.addEventListener("input", (event) => {
+        console.log(`Nilai input: ${event.target.value}`);
+      });
+
+      // Menghapus event listener setelah beberapa detik
+      const myFunc = () => {
+        alert("Event listener akan dihapus setelah 5 detik");
+      };
+      button.addEventListener("click", myFunc);
+      setTimeout(() => {
+        button.removeEventListener("click", myFunc);
+      }, 5000);
+    </script>
+  </body>
+</html>

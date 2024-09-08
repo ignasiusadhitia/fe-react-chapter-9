@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pengenalan JavaScript DOM</title>
+  </head>
+  <body>
+    <h1 id="title">Selamat Datang di Lumoshive Academy!</h1>
+    <p class="content">Ini adalah paragraf pertama.</p>
+    <p class="content">Ini adalah paragraf kedua.</p>
+    <button id="changeTextButton">Ubah Teks</button>
+
+    <script>
+      // Mengakses elemen dengan ID
+      const title = document.getElementById("title");
+      console.log(title.textContent);
+
+      // Mengakses elemen dengan class
+      const paragraphs = document.getElementsByClassName("content");
+      console.log(paragraphs[0].textContent);
+
+      // Mengakses elemen dengan tag
+      const buttons = document.getElementsByTagName("button");
+      console.log(buttons[0].textContent);
+
+      // Mengakses elemen dengan querySelector
+      const firstParagraph = document.querySelector(".content");
+      console.log(firstParagraph.textContent);
+
+      // Mengubah konten elemen
+      title.textContent = "Hello Lumoshive!";
+
+      // Mengubah atribut elemen
+      title.setAttribute("style", "color: red;");
+      title.setAttribute("class", "font-weight-bold");
+
+      // Mengubah gaya elemen
+      title.style.fontSize = "24px";
+
+      // Menambahkan elemen baru
+      const newTitle = document.createElement("h2");
+      newTitle.textContent = "Selamat Belajar DOM!";
+      document.body.appendChild(newTitle);
+
+      // Menghapus elemen dari DOM
+      document.body.removeChild(newTitle);
+
+      // Event listener untuk mengubah teks saat tombol diklik
+      const changeTextButton = document.getElementById("changeTextButton");
+      changeTextButton.addEventListener("click", function () {
+        title.textContent = "Teks telah diubah!";
+      });
+    </script>
+  </body>
+</html>
